@@ -1,0 +1,60 @@
+<center>
+<div>
+<h1>Please enter your information below:</h1>
+<form method="post" action="/favorites">
+	<!-- <input type="Number" name="id" placeholder="Enter ID"><br> -->
+	<input type="text" name="first_name" placeholder="Enter First Name"><br>
+	<input type="text" name="last_name" placeholder="Enter Last Name"><br>
+	<input type="text" name="fav_nums" placeholder="Enter Favorite Numbers"><br>
+	<input type="text" name="fav_food" placeholder="Favorite Food"><br>
+	<input type="text" name="fav_food_phrase" placeholder="Enter Favorite Phrase"><br>
+	<input type="text" name="age" placeholder="Enter Age"><br>
+	
+	<input type="submit" value="Submit">
+</form>
+</div>
+</center>
+
+	<table class="table">
+		<thread>
+			<tr>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Favorite Numbers</th>
+				<th>Favorite Food</th>
+				<th>Favorite Phrase</th>
+				<th>Age</th>
+				
+			</tr>
+		</thread>
+		</tbody>
+			<%phonebook.each do |contacts|%>
+				<tr>
+					
+					<td><%=contacts["first_name"] %></td>
+		            <td><%=contacts["last_name"] %></td>
+		            <td><%=contacts["fav nums"] %></td>
+		            <td><%=contacts["fav food"] %></td>
+		            <td><%=contacts["fav phrase"] %></td>
+		            <td><%=contacts["age"] %></td>
+		            
+		        </tr>
+		     <%end%>
+		</tbody>
+	</table>
+
+	<form action= "/update" method= "post">
+    <input type = "text" name= "first_name_update" placeholder="New Entry">Type new entry here<br>
+    <input type = "text" name= "first_name" placeholder="Old Entry">This is what gets replaced by the entry above.<br>
+    <input type = "submit" value = "Upload Now">
+    </form>
+    <br>
+    <form action= "/delete" method= "post">
+    <input type = "text" name= "id_delete" placeholder="Enter ID">Type ID here<br>
+    <input type = "submit" value = "Delete Contact">
+    </form>
+    <br>
+    <form action="/clear" method="post">
+    <input type = "submit" value = "Clear Table">
+    </form>
